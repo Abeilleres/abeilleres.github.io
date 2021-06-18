@@ -1,66 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body>
-    
-    <div class="container is-fluid">
-      <p class="has-text-centered">
-      <img src="abeilleres_index_logo_tmp.jpg">
-      </p>
-      
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
+document.addEventListener('DOMContentLoaded', () => {
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        <a href="#actu">Actualité</a>
-      </a>
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-      <a class="navbar-item">
-        Le monastère
-      </a>
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
 
-        <a class="navbar-item">
-          Venir en retraite
-        </a>
-          <a class="navbar-item">
-            Soutenir
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-    </div>
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
 
-    <div class="navbar-end">
-    </div>
-  </div>
-</nav>
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
 
-      <section class="section">
-  <h1 class="title" id="actu">Actualités</h1>
-  <h2 class="subtitle">
-La maison est actuellement fermée pour une durée d’une année (à l’exception de
-quelques groupes). </h2>
-    <h2 class="subtitle">
-Elle ouvrira largement son accueil aux retraitants et groupes en été 2022. </h2>
-      <h2 class="subtitle">
-Cette période de « jachère » jusqu’à l’ouverture permet de rendre grâce pour ce qui
-a été vécu par le passé, et de se préparer à ce qu’une part de nouveauté commence. </h2>
-        <h2 class="subtitle">
-C’est le temps de la patience donc ! En attendant vous vous pouvez vous inscrire par
-e-mail pour recevoir une lettre de nouvelles.
-  </h2>
-</section>
-      </div>
-  </body>
-</html>
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
